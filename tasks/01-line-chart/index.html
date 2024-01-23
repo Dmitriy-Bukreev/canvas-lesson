@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Line chart</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Ось X</h1>
+      <h1>Ось Y</h1>
+    </div>
+
+    <script type="module">
+      import { renderTestSample } from './chart/index.js';
+      const root = document.querySelector('.container');
+      renderTestSample(root, 'Ноль в начале', { from: 0, to: 3 });
+      renderTestSample(root, 'Ноль в конце', { from: -3, to: 0 });
+      renderTestSample(root, 'Ноль посередине', { from: -3, to: 3 });
+      renderTestSample(root, 'Только отрицательные числа', {
+        from: -5,
+        to: -2,
+      });
+      renderTestSample(root, 'Только положительные числа', { from: 2, to: 5 });
+      renderTestSample(root, 'Надписи с противоположной стороны', {
+        from: -10,
+        to: 10,
+        mirroredLabelLocation: true,
+      });
+    </script>
+  </body>
+</html>
