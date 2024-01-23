@@ -4,9 +4,14 @@
 
 .container {
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
   place-items: center;
   height: 100vh;
   width: 100vw;
+}
+
+.container__span {
+  grid-column-start: span 2;
 }
 
 .canvas {

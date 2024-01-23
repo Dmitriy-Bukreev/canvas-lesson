@@ -1,26 +1,36 @@
 import AxisX from './axis-x';
 import AxisY from './axis-y';
 
-const canvases = Array.from(document.querySelectorAll('.canvas'));
+function getCanvas(axisType = 'X', options = {}) {
+  const canvas = document.createElement('canvas');
+  canvas.className = 'canvas';
+  canvas.height = 500;
+  canvas.width = 500;
+  const ctx = canvas.getContext('2d');
+  const translateProps = axisType === 'Y' ? [250, 0] : [0, 250];
+  const AxisVar = axisType === 'Y' ? AxisY : AxisX;
+  ctx.translate(...translateProps);
+  const axis = new AxisVar(canvas, options);
+  axis.render();
+  return canvas;
+}
 
-let canvas;
-let ctx;
-let axis;
+function renderTestSample(root, title = '', options = {}) {
+  const h1 = document.createElement('h1');
+  h1.className = 'container__span';
+  h1.textContent = title;
+  const canvases = ['X', 'Y'].map((type) => getCanvas(type, options));
+  root.append(h1, ...canvases);
+}
 
-canvas = canvases.at(0);
-ctx = canvas.getContext('2d');
-ctx.translate(0, 250);
-axis = new AxisX(canvas, { from: -3, to: 0 });
-axis.render();
-
-canvas = canvases.at(1);
-ctx = canvas.getContext('2d');
-ctx.translate(250, 0);
-axis = new AxisY(canvas, { from: -10, to: 10 });
-axis.render();
-
-canvas = canvases.at(2);
-ctx = canvas.getContext('2d');
-ctx.translate(0, 250);
-axis = new AxisX(canvas, { from: -7, to: -3 });
-axis.render();
+const root = document.querySelector('.container');
+renderTestSample(root, 'Ноль в начале', { from: 0, to: 3 });
+renderTestSample(root, 'Ноль в конце', { from: -3, to: 0 });
+renderTestSample(root, 'Ноль посередине', { from: -3, to: 3 });
+renderTestSample(root, 'Только отрицательные числа', { from: -5, to: -2 });
+renderTestSample(root, 'Только положительные числа', { from: 2, to: 5 });
+renderTestSample(root, 'Надписи с противоположной стороны', {
+  from: -10,
+  to: 10,
+  mirroredLabelLocation: true,
+});

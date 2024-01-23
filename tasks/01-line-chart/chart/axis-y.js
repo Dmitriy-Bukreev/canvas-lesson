@@ -3,6 +3,7 @@ import Axis from './axis';
 class AxisY extends Axis {
   constructor(...args) {
     super(...args);
+    this.labels.reverse();
     this.generateRenderParams(this.canvas.height);
   }
 
@@ -12,6 +13,8 @@ class AxisY extends Axis {
     this.ctx.lineTo(0, this.canvas.height);
     this.ctx.stroke();
 
+    this.ctx.textBaseline = 'middle';
+    this.ctx.textAlign = this.mirroredLabelLocation ? 'right' : 'left';
     this.labels.forEach((label, index) => {
       if (label === this.axisStart) return;
       const pos = this.dashInterval * index + this.dashStart;
@@ -20,9 +23,10 @@ class AxisY extends Axis {
       this.ctx.lineTo(this.dashLength / 2, pos);
       this.ctx.stroke();
 
-      const textMetrics = this.ctx.measureText(label);
-      const textX = this.dashLength / 2;
-      const textY = pos + textMetrics.fontBoundingBoxDescent / 2;
+      const textX = this.mirroredLabelLocation
+        ? -this.labelOffset
+        : this.labelOffset;
+      const textY = pos;
       this.ctx.fillText(label, textX, textY);
     });
   }
