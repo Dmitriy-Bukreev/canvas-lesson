@@ -1,12 +1,12 @@
 import { addMatchImageSnapshotCommand } from '@simonsmith/cypress-image-snapshot/command';
+import { mount } from '../../utils/mount';
 
+Cypress.Commands.add('mount', mount);
 Cypress.Screenshot.defaults({
   capture: 'viewport',
 });
 
-// can also add any default options to be used
-// by all instances of `matchImageSnapshot`
 addMatchImageSnapshotCommand({
-  comparisonMethod: 'ssim',
+  comparisonMethod: 'pixelmatch',
   failureThreshold: 0.5,
 });

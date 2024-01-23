@@ -12,10 +12,11 @@
     "preview": "vite preview --open",
     "buildpreview": "vite build && vite preview --open",
     "test:unit": "vitest run",
-    "test:e2e": "cypress run --e2e --browser chrome",
-    "test": "npm run test:unit & npm run test:e2e "
+    "test:int": "cypress run --component --browser chrome",
+    "test": "npm run test:unit & npm run test:int "
   },
   "devDependencies": {
+    "@cypress/mount-utils": "^4.0.0",
     "@simonsmith/cypress-image-snapshot": "^9.0.1",
     "autoprefixer": "^10.4.16",
     "cssnano": "^6.0.3",
