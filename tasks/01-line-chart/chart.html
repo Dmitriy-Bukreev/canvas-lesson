@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Line chart</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container"></div>
+    <script type="module">
+      import { getCanvasWithChart } from './chart/index.js';
+      const root = document.querySelector('.container');
+
+      function renderTestSample(root, title = '', options = {}) {
+        const h1 = document.createElement('h1');
+        h1.textContent = title;
+        const canvas = getCanvasWithChart(options);
+        root.append(h1, canvas);
+      }
+
+      renderTestSample(root, 'Ось X сверху', {
+        axisXSettings: { from: -10, to: 10, mirroredLabelLocation: true },
+        axisYSettings: { from: -10, to: 0 },
+      });
+
+      renderTestSample(root, 'Ось X не находится на краю', {
+        axisXSettings: { from: -10, to: 10, mirroredLabelLocation: true },
+        axisYSettings: { from: -10, to: 5 },
+      });
+
+      renderTestSample(root, 'Ось X снизу', {
+        axisXSettings: { from: -10, to: 10 },
+        axisYSettings: { from: 0, to: 10 },
+      });
+
+      renderTestSample(root, 'Ось Y слева', {
+        axisXSettings: { from: 5, to: 10, step: 2 },
+        axisYSettings: { from: -10, to: 10 },
+      });
+
+      renderTestSample(root, 'Ось Y не находится на краю', {
+        axisXSettings: { from: -5, to: 8, mirroredLabelLocation: true },
+        axisYSettings: { from: -10, to: 10 },
+      });
+
+      renderTestSample(root, 'Ось Y справа', {
+        axisXSettings: { from: -10, to: -4, step: 2 },
+        axisYSettings: { from: -10, to: 10, mirroredLabelLocation: true },
+      });
+    </script>
+  </body>
+</html>

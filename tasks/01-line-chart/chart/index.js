@@ -1,7 +1,8 @@
 import AxisX from './axis-x';
 import AxisY from './axis-y';
+import LineChart from './line-chart';
 
-export default function getCanvas(
+export function getCanvasWithAxis(
   axisType = 'X',
   options = {},
   size = [500, 500],
@@ -18,10 +19,10 @@ export default function getCanvas(
   return canvas;
 }
 
-export function renderTestSample(root, title = '', options = {}) {
-  const h1 = document.createElement('h1');
-  h1.className = 'container__span';
-  h1.textContent = title;
-  const canvases = ['X', 'Y'].map((type) => getCanvas(type, options));
-  root.append(h1, ...canvases);
+export function getCanvasWithChart(options = {}, size = [500, 500]) {
+  const canvas = document.createElement('canvas');
+  [canvas.height, canvas.width] = size;
+  const chart = new LineChart(canvas, options);
+  chart.render();
+  return canvas;
 }

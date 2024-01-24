@@ -25,4 +25,8 @@ describe('generateLabels', () => {
   test('should return empty array', () => {
     expect(generateArray(0, -5)).toStrictEqual([]);
   });
+
+  test('should implement step correctly when starting point is not zero', () => {
+    expect(generateArray(3, 9, 2)).toStrictEqual([3, 5, 7]);
+  });
 });
