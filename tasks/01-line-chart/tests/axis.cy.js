@@ -1,4 +1,4 @@
-import getCanvas from '../chart';
+import { getCanvasWithAxis } from '../chart';
 
 describe(
   'Axis',
@@ -37,7 +37,7 @@ describe(
     ['X', 'Y'].forEach((axisType) => {
       tests.forEach((test) => {
         it(`Axis ${axisType}: ${test.name}`, () => {
-          cy.mount(getCanvas(axisType, test.options));
+          cy.mount(getCanvasWithAxis(axisType, test.options));
           cy.matchImageSnapshot();
         });
       });
