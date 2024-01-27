@@ -20,7 +20,7 @@
     "@simonsmith/cypress-image-snapshot": "^9.0.1",
     "autoprefixer": "^10.4.16",
     "cssnano": "^6.0.3",
-    "cypress": "^13.6.2",
+    "cypress": "^13.6.3",
     "eslint": "^8.56.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^9.1.0",

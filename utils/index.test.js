@@ -11,11 +11,11 @@ describe('generateLabels', () => {
   });
 
   test('should work with three arguments', () => {
-    expect(generateArray(0, 10, 2), [0, 2, 4, 6, 8]);
+    expect(generateArray(0, 10, 2)).toStrictEqual([0, 2, 4, 6, 8]);
   });
 
   test('should work with float numbers', () => {
-    expect(generateArray(0, 1, 0.25), [0, 0.25, 0.5, 0.75]);
+    expect(generateArray(0, 1, 0.25)).toStrictEqual([0, 0.25, 0.5, 0.75]);
   });
 
   test('should work with negative numbers', () => {

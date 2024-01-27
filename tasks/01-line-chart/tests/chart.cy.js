@@ -6,6 +6,7 @@ describe(
     viewportHeight: 600,
     viewportWidth: 600,
   },
+
   () => {
     const tests = [
       {

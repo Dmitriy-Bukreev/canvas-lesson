@@ -9,4 +9,5 @@ Cypress.Screenshot.defaults({
 addMatchImageSnapshotCommand({
   comparisonMethod: 'pixelmatch',
   failureThreshold: 0.5,
+  capture: 'viewport',
 });

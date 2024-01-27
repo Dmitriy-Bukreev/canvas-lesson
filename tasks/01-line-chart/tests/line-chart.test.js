@@ -3,7 +3,7 @@ import Axis from '../chart/axis';
 
 const canvasMock = { getContext: () => {} };
 
-describe('line-chart', () => {
+describe('Axis class', () => {
   test('should generate with positive only', () => {
     const axis = new Axis(canvasMock, { from: 0, to: 5, step: 1 });
     expect(axis.labels).toStrictEqual([0, 1, 2, 3, 4, 5]);
@@ -23,7 +23,7 @@ describe('line-chart', () => {
   });
 
   test('should be centered around 0', () => {
-    const axis = new Axis(canvasMock, { from: -4, to: 2, step: 2 });
+    const axis = new Axis(canvasMock, { from: -5, to: 2, step: 2 });
     expect(axis.labels).toStrictEqual([-4, -2, 0, 2]);
     expect(axis.axisStart).toBe(0);
   });
@@ -38,5 +38,11 @@ describe('line-chart', () => {
     const axis = new Axis(canvasMock, { from: -5, to: -2 });
     expect(axis.labels).toStrictEqual([-5, -4, -3, -2]);
     expect(axis.axisStart).toBe(-2);
+  });
+
+  test('should keep Raul in check', () => {
+    const axis = new Axis(canvasMock, { from: -1, to: 0.5, step: 0.5 });
+    expect(axis.labels).toStrictEqual([-1, -0.5, 0, 0.5]);
+    expect(axis.axisStart).toBe(0);
   });
 });
