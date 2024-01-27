@@ -59,6 +59,12 @@ class Axis {
         : this.labels.length);
     this.dashStart = this.labels[0] === this.axisStart ? 0 : this.dashInterval;
   }
+
+  get zeroPos() {
+    const zeroIndex = this.labels.indexOf(this.axisStart);
+    if (zeroIndex === 0) return 0;
+    return (zeroIndex + 1) * this.dashInterval;
+  }
 }
 
 export default Axis;

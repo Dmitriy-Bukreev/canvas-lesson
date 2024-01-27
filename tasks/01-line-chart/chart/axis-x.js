@@ -26,7 +26,7 @@ class AxisX extends Axis {
       const textX = pos + textMetrics.width / 2;
       const textY = this.mirroredLabelLocation
         ? this.labelOffset
-        : this.labelOffset;
+        : -this.labelOffset;
       this.ctx.fillText(label, textX, textY);
     });
   }
