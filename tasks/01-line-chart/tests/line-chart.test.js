@@ -24,7 +24,7 @@ describe('Axis class', () => {
 
   test('should be centered around 0', () => {
     const axis = new Axis(canvasMock, { from: -5, to: 2, step: 2 });
-    expect(axis.labels).toStrictEqual([-4, -2, 0, 2]);
+    expect(axis.labels).toStrictEqual([-6, -4, -2, 0, 2]);
     expect(axis.axisStart).toBe(0);
   });
 
