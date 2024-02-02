@@ -1,9 +1,9 @@
 import Axis from './axis';
 
 class AxisX extends Axis {
-  constructor(...args) {
-    super(...args);
-    this.generateRenderParams(this.canvas.width);
+  constructor(canvas, settings) {
+    super(canvas, settings);
+    this.generateRenderParams(this.canvas.width, settings.step);
   }
 
   render() {

@@ -19,10 +19,18 @@ export function getCanvasWithAxis(
   return canvas;
 }
 
-export function getCanvasWithChart(options = {}, size = [500, 500]) {
+export function getCanvasWithChart(
+  options = {},
+  plotOptions = [],
+  size = [500, 500],
+) {
   const canvas = document.createElement('canvas');
   [canvas.height, canvas.width] = size;
   const chart = new LineChart(canvas, options);
+
   chart.render();
+  plotOptions.forEach(({ data, lineSettings }) =>
+    chart.plot(data, lineSettings),
+  );
   return canvas;
 }

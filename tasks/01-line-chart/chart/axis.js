@@ -51,13 +51,14 @@ class Axis {
     return this.labels.at(-1);
   }
 
-  generateRenderParams(size) {
+  generateRenderParams(size, step = 1) {
     this.dashInterval =
       size /
       (this.from !== 0 && this.to !== 0 && this.axisStart === 0
         ? this.labels.length + 1
         : this.labels.length);
     this.dashStart = this.labels[0] === this.axisStart ? 0 : this.dashInterval;
+    this.scaleFactor = this.dashInterval / step;
   }
 
   get zeroPos() {

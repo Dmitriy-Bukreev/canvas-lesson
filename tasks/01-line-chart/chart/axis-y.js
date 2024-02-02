@@ -1,10 +1,10 @@
 import Axis from './axis';
 
 class AxisY extends Axis {
-  constructor(...args) {
-    super(...args);
+  constructor(canvas, settings) {
+    super(canvas, settings);
     this.labels.reverse();
-    this.generateRenderParams(this.canvas.height);
+    this.generateRenderParams(this.canvas.height, settings.step);
   }
 
   render() {
