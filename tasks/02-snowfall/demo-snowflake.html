@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snowflake demo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <canvas height="500" width="500" style="background-color: red"></canvas>
+    </div>
+
+    <script type="module">
+      import Snowflake from './snow-lib/snowflake.js';
+
+      const canvas = document.querySelector('canvas');
+      const ctx = canvas.getContext('2d');
+      const snowflake = new Snowflake(ctx, 250, 250, 20);
+      snowflake.render();
+      snowflake.moveBy(-100, -100);
+    </script>
+  </body>
+</html>

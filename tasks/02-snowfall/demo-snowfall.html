@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snowfall demo</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        background-color: blue;
+      }
+      .canvas-snowfall {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="module">
+      import Snowfall from './snow-lib/snowfall.js';
+
+      const snowfall = new Snowfall();
+    </script>
+  </body>
+</html>

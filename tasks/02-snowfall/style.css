@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+}
+
+.container {
+  display: grid;
+  place-items: center;
+}
+
+.container_axis {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.container__span {
+  grid-column-start: span 2;
+}
+
+canvas {
+  border: 1px solid rgba(255, 0, 0, 0.2);
+  margin-bottom: 48px;
+}
+
+h1 {
+  margin-bottom: 16px;
+}

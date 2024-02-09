@@ -3,6 +3,8 @@ import { resolve } from 'path';
 import eslint from 'vite-plugin-eslint';
 import { ViteMinifyPlugin } from 'vite-plugin-minify';
 
+import includeFiles from './utils/include-files';
+
 export default defineConfig({
   publicDir: 'public',
   root: './',
@@ -11,8 +13,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         root: resolve(__dirname, 'index.html'),
-        task_1: resolve(__dirname, 'tasks/01-line-chart/index.html'),
-        task_2: resolve(__dirname, 'tasks/02-pie-chart/index.html'),
+        ...includeFiles(__dirname, 'tasks/01-line-chart/*.html'),
       },
     },
   },
