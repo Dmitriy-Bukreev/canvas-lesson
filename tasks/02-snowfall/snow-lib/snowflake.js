@@ -25,6 +25,7 @@ class Snowflake {
     this.gradient.addColorStop(1, 'rgba(255, 255, 255, 0%)');
     this.gradient.addColorStop(0, 'rgba(255, 255, 255, 100%)');
     this.ctx.fillStyle = this.gradient;
+    this.ctx.beginPath();
     this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
     this.ctx.fill();
   }
